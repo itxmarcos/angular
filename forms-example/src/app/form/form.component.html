@@ -1,0 +1,21 @@
+<div class='ui raised segment'>
+    <form [formGroup]='myForm' (ngSubmit)='onSubmit()'> <!-- VINCULOS: formGroup con el formulario al que pertenece, myForm y a que funcion se va a ir cuando se clique, onSubmit-->
+        <div class='field'>
+            <label for='skuInput'>Usuario</label>
+            <input type='text' id='usuarioInput' placeholder='usuario', name='usuario' [formControl]='myForm.controls["usuario"]'> <!-- VINCULO control que he creado en el ts-->
+        </div>
+        <div class='field'>
+            <label for='skuInput'>Contraseña</label>
+            <input type='password' id='contraseniaInput' placeholder='contrasenia', name='contrasenia' [formControl]='myForm.controls["contrasenia"]'>
+        </div>
+        <div class='field'>
+            <label for='skuInput'>Fecha de nacimiento</label>
+            <input type='date' id='fechaInput' placeholder='fecha', name='fecha' [formControl]='myForm.controls["fecha"]'>
+        </div>
+        <div class='field'>
+            <label for='skuInput'>Email</label>
+            <input type='mail' id='emailInput' placeholder='email', name='email' [formControl]='myForm.controls["email"]'>
+        </div>
+        <button type='submit' class='ui button'>Submit</button>
+    </form>
+</div>

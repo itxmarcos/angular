@@ -1,0 +1,39 @@
+<div class="ui raised segment">
+  <h2 class="ui header">Demo Form: with validations (shorthand)</h2>
+  <form [formGroup]="myForm"
+        (ngSubmit)="onSubmit(myForm.value)"
+        class="ui form"
+        [class.error]="!myForm.valid && myForm.dirty">
+
+    <div class="field"
+      [class.error]="!myForm.get('sku').valid && myForm.get('sku').dirty">
+      <label for="skuInput">SKU</label>
+      <input type="text"
+             id="skuInput"
+             placeholder="SKU"
+             [formControl]="myForm.controls['sku']">
+       <div *ngIf="!myForm.controls['sku'].valid"
+         class="ui error message">SKU is invalid</div>
+       <div *ngIf="myForm.controls['sku'].hasError('required')"
+         class="ui error message">SKU is required</div>
+    </div>
+
+    <div class="field"
+      [class.error]="!myForm.get('name').valid && myForm.get('name').dirty">
+      <label for="nameInput">Name</label>
+      <input type="text"
+             id="nameInput"
+             placeholder="Name"
+             [formControl]="myForm.controls['name']">
+       <div *ngIf="!myForm.controls['name'].valid"
+         class="ui error message">name is invalid</div>
+       <div *ngIf="myForm.controls['name'].hasError('required')"
+         class="ui error message">name is required</div>
+    </div>
+
+    <div *ngIf="!myForm.valid"
+      class="ui error message">Form is invalid</div>
+
+    <button type="submit" class="ui button">Submit</button>
+  </form>
+</div>
